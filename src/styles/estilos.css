@@ -1,18 +1,431 @@
 /*
- * Identidad visual del portafolio.
- * Se definen como variables CSS para cambiar la paleta en un solo lugar.
- * Bootstrap entrega la estructura (grilla, componentes); este archivo solo
- * agrega lo que Bootstrap no trae: colores propios y detalles de marca.
+ * Identidad visual: "jardín cósmico".
+ * Noche verde profunda (botánica + universo), acentos dorados (lo celestial,
+ * y el mismo tono beige de las hojas de la foto) y geometría sagrada en líneas finas.
+ *
+ * Bootstrap pone la estructura y los componentes; este archivo NO los reemplaza:
+ * cambia las variables CSS que Bootstrap 5.3 expone (--bs-*), así sus componentes
+ * toman la paleta propia sin pelear con su CSS.
  */
+
+/* ---------- 1. Paleta y tipografía (fuente única de verdad) ---------- */
 :root {
-  --color-primario: #4f46e5;
-  --color-secundario: #2563eb;
-  --color-texto: #1f2937;
-  --color-fondo-suave: #f8fafc;
-  --degradado-hero: linear-gradient(90deg, var(--color-primario), var(--color-secundario));
+  --noche: #0b1411;
+  --noche-media: #11201a;
+  --superficie: #152a21;
+  --verde-botella: #1f3b2c;
+  --esmeralda: #3e8e68;
+  --salvia: #a9c2b0;
+  --oro: #c9a96e;
+  --oro-claro: #ead8ab;
+  --texto: #e8efe9;
+  --borde-dorado: rgba(201, 169, 110, 0.22);
+  --resplandor: 0 0 28px rgba(201, 169, 110, 0.18);
+  --fuente-titulos: 'Cinzel', 'Times New Roman', serif;
+  --fuente-texto: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --alto-barra: 72px;
+}
+
+/* Variables de Bootstrap reasignadas a la paleta propia (modo oscuro). */
+[data-bs-theme='dark'] {
+  --bs-body-bg: var(--noche);
+  --bs-body-color: var(--texto);
+  --bs-body-font-family: var(--fuente-texto);
+  --bs-emphasis-color: var(--texto);
+  --bs-secondary-color: var(--salvia);
+  --bs-link-color: var(--oro);
+  --bs-link-color-rgb: 201, 169, 110;
+  --bs-link-hover-color: var(--oro-claro);
+  --bs-link-hover-color-rgb: 234, 216, 171;
+  --bs-border-color: var(--borde-dorado);
+  --bs-focus-ring-color: rgba(201, 169, 110, 0.45);
+  --bs-form-invalid-color: #f1a7a0;
+  --bs-form-invalid-border-color: #f1a7a0;
+}
+
+/* ---------- 2. Base ---------- */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--color-texto);
-  background-color: var(--color-fondo-suave);
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(62, 142, 104, 0.18), transparent 55%),
+    radial-gradient(ellipse at 90% 30%, rgba(201, 169, 110, 0.08), transparent 50%),
+    var(--noche);
+  background-attachment: fixed;
+  line-height: 1.7;
+}
+
+/* Campo de estrellas: puntos hechos con degradados, sin imágenes que descargar. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(234, 216, 171, 0.7), transparent),
+    radial-gradient(1px 1px at 120px 80px, rgba(232, 239, 233, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 200px 160px, rgba(234, 216, 171, 0.6), transparent),
+    radial-gradient(1px 1px at 60px 190px, rgba(169, 194, 176, 0.5), transparent);
+  background-size: 240px 240px;
+  opacity: 0.45;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: var(--fuente-titulos);
+  letter-spacing: 0.04em;
+}
+
+/* Foco visible y consistente para quien navega con teclado. */
+:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 3px;
+}
+
+/* Las secciones quedan bajo la barra fija; esto evita que el título se esconda al saltar. */
+section[id], main[id] {
+  scroll-margin-top: var(--alto-barra);
+}
+
+.texto-suave {
+  color: var(--salvia);
+}
+
+/* ---------- 3. Botones propios sobre el sistema de Bootstrap ---------- */
+/* variant="oro" en React-Bootstrap genera la clase .btn-oro. */
+.btn-oro {
+  --bs-btn-color: var(--noche);
+  --bs-btn-bg: var(--oro);
+  --bs-btn-border-color: var(--oro);
+  --bs-btn-hover-color: var(--noche);
+  --bs-btn-hover-bg: var(--oro-claro);
+  --bs-btn-hover-border-color: var(--oro-claro);
+  --bs-btn-active-color: var(--noche);
+  --bs-btn-active-bg: var(--oro-claro);
+  --bs-btn-active-border-color: var(--oro-claro);
+  --bs-btn-focus-shadow-rgb: 201, 169, 110;
+  font-weight: 600;
+}
+
+.btn-outline-oro {
+  --bs-btn-color: var(--oro);
+  --bs-btn-border-color: var(--oro);
+  --bs-btn-hover-color: var(--noche);
+  --bs-btn-hover-bg: var(--oro);
+  --bs-btn-hover-border-color: var(--oro);
+  --bs-btn-active-color: var(--noche);
+  --bs-btn-active-bg: var(--oro);
+  --bs-btn-active-border-color: var(--oro);
+  --bs-btn-focus-shadow-rgb: 201, 169, 110;
+  font-weight: 600;
+}
+
+.btn svg {
+  vertical-align: -1px;
+}
+
+/* ---------- 4. Accesibilidad: enlace "Saltar al contenido" ---------- */
+.enlace-saltar:focus {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2000;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--oro);
+  color: var(--noche);
+  font-weight: 700;
+}
+
+/* ---------- 5. Barra de navegación ---------- */
+.barra-navegacion {
+  min-height: var(--alto-barra);
+  background-color: rgba(11, 20, 17, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--borde-dorado);
+}
+
+.barra-navegacion__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--oro-claro);
+  font-size: 1.05rem;
+}
+
+.barra-navegacion__logo {
+  width: 34px;
+  height: 34px;
+  color: var(--oro);
+}
+
+.barra-navegacion .nav-link {
+  color: var(--salvia);
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+}
+
+.barra-navegacion .nav-link:hover,
+.barra-navegacion .nav-link:focus-visible {
+  color: var(--oro-claro);
+}
+
+/* ---------- 6. Portada ---------- */
+.portada {
+  padding: 5rem 0 4rem;
+}
+
+.portada__marco {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: min(360px, 85vw);
+  aspect-ratio: 1;
+}
+
+.portada__geometria {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--oro);
+  opacity: 0.4;
+  animation: girar 140s linear infinite;
+}
+
+.portada__foto {
+  position: relative;
+  width: 62%;
+  height: auto;
+  border: 2px solid var(--oro);
+  box-shadow: var(--resplandor), 0 0 0 8px rgba(31, 59, 44, 0.6);
+  object-fit: cover;
+}
+
+.portada__saludo {
+  color: var(--esmeralda);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.portada__nombre {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 600;
+  background: linear-gradient(100deg, var(--oro-claro), var(--oro) 60%, var(--salvia));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.portada__titulo {
+  color: var(--salvia);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.portada__biografia {
+  max-width: 38rem;
+  margin-inline: auto;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 992px) {
+  .portada {
+    min-height: calc(90vh - var(--alto-barra));
+    display: flex;
+    align-items: center;
+  }
+
+  .portada__biografia {
+    margin-inline: 0;
+  }
+}
+
+/* ---------- 7. Secciones y títulos ---------- */
+.seccion {
+  padding: 4.5rem 0;
+}
+
+.titulo-seccion__ornamento {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--oro);
+  font-size: 0.9rem;
+}
+
+/* Líneas doradas a cada lado del ✦ */
+.titulo-seccion__ornamento::before,
+.titulo-seccion__ornamento::after {
+  content: '';
+  width: 3rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--oro));
+}
+
+.titulo-seccion__ornamento::after {
+  background: linear-gradient(90deg, var(--oro), transparent);
+}
+
+.titulo-seccion__texto {
+  margin: 0.5rem 0;
+  font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+  color: var(--oro-claro);
+}
+
+.titulo-seccion__subtitulo {
+  color: var(--salvia);
+  margin-bottom: 0;
+}
+
+.sobre-mi__parrafo {
+  font-size: 1.05rem;
+}
+
+/* ---------- 8. Tarjetas (proyectos, noticias, habilidades) ---------- */
+.tarjeta {
+  --bs-card-bg: rgba(21, 42, 33, 0.78);
+  --bs-card-border-color: var(--borde-dorado);
+  --bs-card-color: var(--texto);
+  --bs-card-cap-bg: transparent;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--resplandor);
+  border-color: rgba(201, 169, 110, 0.5);
+}
+
+.tarjeta__imagen {
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-bottom: 1px solid var(--borde-dorado);
+}
+
+.tarjeta__titulo {
+  color: var(--oro-claro);
+  font-size: 1.15rem;
+}
+
+.tarjeta__fecha {
+  color: var(--esmeralda);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.etiqueta-tecnologia {
+  display: inline-block;
+  padding: 0.3em 0.75em;
+  border: 1px solid rgba(169, 194, 176, 0.35);
+  border-radius: 999px;
+  background: rgba(31, 59, 44, 0.65);
+  color: var(--salvia);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.seccion-noticias__titulo {
+  font-size: 1.25rem;
+  color: var(--oro);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--borde-dorado);
+}
+
+/* ---------- 9. Redes sociales ---------- */
+.enlaces-redes__enlace {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--borde-dorado);
+  border-radius: 50%;
+  color: var(--salvia);
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.enlaces-redes__enlace:hover {
+  color: var(--oro-claro);
+  border-color: var(--oro);
+  box-shadow: var(--resplandor);
+}
+
+/* ---------- 10. Formulario ---------- */
+.formulario-contacto .form-control {
+  background-color: rgba(17, 32, 26, 0.85);
+  border-color: rgba(169, 194, 176, 0.3);
+  color: var(--texto);
+}
+
+.formulario-contacto .form-control:focus {
+  border-color: var(--oro);
+  box-shadow: 0 0 0 0.2rem rgba(201, 169, 110, 0.25);
+}
+
+/* ---------- 11. Estados de carga y error ---------- */
+.estado-pagina {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+}
+
+.estado-pagina__spinner {
+  color: var(--oro);
+  width: 3rem;
+  height: 3rem;
+}
+
+/* ---------- 12. Pie de página ---------- */
+.pie-pagina {
+  padding: 3rem 0 2rem;
+  border-top: 1px solid var(--borde-dorado);
+  background: linear-gradient(180deg, transparent, rgba(31, 59, 44, 0.35));
+}
+
+.pie-pagina__geometria {
+  width: 56px;
+  height: 56px;
+  color: var(--oro);
+  opacity: 0.7;
+}
+
+/* En tamaños chicos (logo y pie) las líneas de 0.6 se pierden: se engrosan con CSS,
+   que tiene prioridad sobre el atributo strokeWidth del SVG. */
+.barra-navegacion__logo g,
+.pie-pagina__geometria g {
+  stroke-width: 3;
+}
+
+/* ---------- 13. Animación y movimiento reducido ---------- */
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Personas sensibles al movimiento pueden pedirlo a su sistema operativo;
+   se respetan desactivando giros, desplazamiento suave y efectos de hover. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .portada__geometria {
+    animation: none;
+  }
+
+  .tarjeta,
+  .tarjeta:hover {
+    transition: none;
+    transform: none;
+  }
 }

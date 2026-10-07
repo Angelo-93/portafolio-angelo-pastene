@@ -24,6 +24,12 @@ describe('Contrato de los datos JSON', () => {
       expect(esTextoConContenido(perfil.foto)).toBeTrue()
     })
 
+    it('trae párrafos para "Sobre mí" y una lista de habilidades', () => {
+      expect(perfil.sobreMi.length).toBeGreaterThan(0)
+      perfil.sobreMi.forEach((parrafo) => expect(esTextoConContenido(parrafo)).toBeTrue())
+      expect(perfil.habilidades.length).toBeGreaterThan(0)
+    })
+
     it('cada red social tiene nombre y una URL segura (https)', () => {
       perfil.redes.forEach((red) => {
         expect(esTextoConContenido(red.nombre)).toBeTrue()
@@ -47,9 +53,6 @@ describe('Contrato de los datos JSON', () => {
     })
 
     it('cada proyecto tiene enlace a su repositorio o a su demo', () => {
-      // Desactivada a propósito: falta el enlace de SIGA. Se activa en el bloque 3
-      // borrando esta línea, cuando el JSON tenga todos los enlaces.
-      pending('Falta el enlace del proyecto SIGA (se completa en el bloque 3)')
       const sinEnlace = proyectos
         .filter((proyecto) => !proyecto.repositorio && !proyecto.demo)
         .map((proyecto) => proyecto.titulo)

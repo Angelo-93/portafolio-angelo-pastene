@@ -1,17 +1,27 @@
-import Container from 'react-bootstrap/Container'
+import EnlaceSaltarContenido from './components/atoms/EnlaceSaltarContenido.jsx'
+import BarraNavegacion from './components/organisms/BarraNavegacion.jsx'
+import PaginaPortafolio from './pages/PaginaPortafolio.jsx'
+
+// Secciones del menú. El id debe coincidir con el id de cada <section>.
+const SECCIONES = [
+  { id: 'inicio', texto: 'Inicio' },
+  { id: 'sobre-mi', texto: 'Sobre mí' },
+  { id: 'proyectos', texto: 'Proyectos' },
+  { id: 'noticias', texto: 'Noticias' },
+  { id: 'contacto', texto: 'Contacto' },
+]
 
 /**
- * Componente raíz del portafolio.
- * En el bloque 1 solo confirma que React y Bootstrap quedaron bien conectados;
- * en los bloques siguientes ensamblará la página con los organismos.
- * @returns {JSX.Element}
+ * Componente raíz: solo ensambla las piezas que están siempre visibles
+ * (enlace de accesibilidad y menú) y la página, que maneja sus propios datos.
  */
 function App() {
   return (
-    <Container as="main" className="py-5 text-center">
-      <h1>Angelo Pastene Acevedo</h1>
-      <p className="lead">Portafolio en construcción.</p>
-    </Container>
+    <>
+      <EnlaceSaltarContenido />
+      <BarraNavegacion marca="Angelo Pastene" secciones={SECCIONES} />
+      <PaginaPortafolio />
+    </>
   )
 }
 
