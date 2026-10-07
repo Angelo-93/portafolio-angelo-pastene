@@ -20,6 +20,10 @@ const ARCHIVOS_JS = 'src/**/*.js'
 module.exports = function (config) {
   config.set({
     frameworks: ['jasmine', 'webpack'],
+    // 'karma-*' carga automáticamente los plugins cuyo nombre empieza con karma-
+    // (jasmine, webpack, coverage, chrome, firefox). El de Edge se publica con
+    // otro nombre (@chiragrupani/...), así que se agrega a mano.
+    plugins: ['karma-*', require('@chiragrupani/karma-chromium-edge-launcher')],
 
     files: [
       { pattern: ARCHIVOS_JSX, watched: false },
@@ -47,8 +51,10 @@ module.exports = function (config) {
                 // runtime 'automatic': no hace falta importar React en cada archivo.
                 presets: [['@babel/preset-react', { runtime: 'automatic' }]],
                 // istanbul marca cada línea para saber cuáles ejecutaron las pruebas.
-                // Por defecto ignora los *.spec.jsx, así que solo mide el código real.
-                plugins: ['istanbul'],
+                // Se excluyen los *.spec a mano: istanbul solo ignora por defecto los
+                // *.test.*, y medir las pruebas inflaría la cobertura con código que
+                // siempre se ejecuta.
+                plugins: [['istanbul', { exclude: ['**/*.spec.js', '**/*.spec.jsx'] }]],
               },
             },
           },

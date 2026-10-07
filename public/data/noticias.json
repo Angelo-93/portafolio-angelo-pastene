@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "categoria": "academica",
+    "titulo": "Presenté la Evaluación Parcial 1 de Fullstack II",
+    "fecha": "2026-09-08",
+    "contenido": "Entregué y presenté el frontend de la tienda INFORCORE, hecho con HTML5, CSS3 y JavaScript sin librerías."
+  },
+  {
+    "id": 2,
+    "categoria": "academica",
+    "titulo": "Comenzamos la migración a React",
+    "fecha": "2026-09-15",
+    "contenido": "En clases confirmamos que la tienda de la primera evaluación se migra a componentes React con Bootstrap."
+  },
+  {
+    "id": 3,
+    "categoria": "tecnica",
+    "titulo": "Atomic Design para ordenar componentes",
+    "fecha": "2026-09-21",
+    "contenido": "Aprendí a separar la interfaz en átomos, moléculas, organismos y páginas para reutilizar componentes sin duplicar código."
+  },
+  {
+    "id": 4,
+    "categoria": "tecnica",
+    "titulo": "Pruebas unitarias con Jasmine y Karma",
+    "fecha": "2026-09-28",
+    "contenido": "Vimos pruebas de renderizado, eventos y estado, y cómo usar mocks para no depender de servicios externos."
+  },
+  {
+    "id": 5,
+    "categoria": "tecnica",
+    "titulo": "Mi primer entorno de pruebas funcionando",
+    "fecha": "2026-10-06",
+    "contenido": "Configuré Karma con webpack y Babel para ejecutar pruebas de componentes React y generar el informe de cobertura."
+  }
+]

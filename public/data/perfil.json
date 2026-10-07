@@ -1,0 +1,12 @@
+{
+  "nombre": "Angelo Pastene Acevedo",
+  "titulo": "Estudiante de Ingeniería en Informática · Duoc UC",
+  "biografia": "Estudiante de Ingeniería en Informática en Duoc UC, sede Maipú. Bienvenido a mi portafolio, donde comparto mis proyectos y novedades recientes.",
+  "foto": "img/perfil.webp",
+  "sobreMi": [
+    "Texto provisional: se completa en el bloque 3 con tu información."
+  ],
+  "redes": [
+    { "nombre": "GitHub", "url": "https://github.com/Angelo-93" }
+  ]
+}
