@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "titulo": "INFORCORE — Tienda online",
+    "descripcion": "Tienda online de hardware corporativo y educacional, con catálogo, carrito persistente, registro con validaciones y panel de administración.",
+    "imagen": "img/proyectos/inforcore.webp",
+    "tecnologias": ["HTML5", "CSS3", "JavaScript"],
+    "repositorio": "https://github.com/Angelo-93/DSY1104---DESARROLLO-FULLSTACK-II---006V",
+    "demo": null
+  },
+  {
+    "id": 2,
+    "titulo": "El Jardín del Ángel",
+    "descripcion": "Sistema de gestión para un vivero, construido como microservicios: catálogo de plantas, ventas y un gateway que los une. Mi primer cruce entre software y botánica.",
+    "imagen": "img/proyectos/jardin-del-angel.webp",
+    "tecnologias": ["Java", "Spring Boot", "Docker"],
+    "repositorio": "https://github.com/Angelo-93/EP3-DSY1103_008V",
+    "demo": null
+  },
+  {
+    "id": 3,
+    "titulo": "Portafolio personal",
+    "descripcion": "Este mismo sitio: componentes React reutilizables, datos cargados desde JSON, diseño responsivo con Bootstrap y pruebas unitarias con Jasmine y Karma.",
+    "imagen": "img/proyectos/portafolio.webp",
+    "tecnologias": ["React", "Bootstrap", "Jasmine", "Karma"],
+    "repositorio": "https://github.com/Angelo-93/portafolio-angelo-pastene",
+    "demo": null
+  }
+]

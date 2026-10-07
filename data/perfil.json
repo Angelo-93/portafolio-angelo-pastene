@@ -1,0 +1,16 @@
+{
+  "nombre": "Angelo Pastene Acevedo",
+  "titulo": "Estudiante de Ingeniería en Informática · Duoc UC",
+  "biografia": "Me apasionan la inteligencia artificial y la robótica, y me gustaría llevarlas al mundo de la botánica: robots inteligentes capaces de plantar, cuidar la tierra y acompañar el crecimiento de las plantas.",
+  "foto": "img/perfil.webp",
+  "sobreMi": [
+    "Estudio Ingeniería en Informática en jornada vespertina en Duoc UC, sede Maipú, y trabajo en el área de Back Office de una reconocida marca de café. Ese trabajo me enseñó a entender bien qué necesita una persona antes de proponer una solución.",
+    "Me considero organizado, analítico y detallista. No me conformo con la primera versión de lo que hago: busco cómo optimizarlo, corrijo los errores que encuentro y vuelvo sobre mi trabajo para dejarlo cada vez mejor.",
+    "A futuro quiero especializarme en robótica e inteligencia artificial, y seguir aprendiendo todo lo que pueda en el camino."
+  ],
+  "habilidades": ["HTML5", "CSS3", "JavaScript", "React", "Bootstrap", "Java", "Spring Boot", "SQL y PL/SQL", "Git"],
+  "redes": [
+    { "nombre": "GitHub", "url": "https://github.com/Angelo-93" },
+    { "nombre": "LinkedIn", "url": "https://www.linkedin.com/in/angelo-pastene-acevedo-apa93lk" }
+  ]
+}
